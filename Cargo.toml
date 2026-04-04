@@ -1,0 +1,32 @@
+[package]
+name = "nullsec-carfuzz"
+version = "0.1.0"
+edition = "2021"
+authors = ["bad-antics <admin@bad-antics.net>"]
+description = "Coverage-guided fuzzer for automotive protocols: CAN, UDS (ISO 14229), OBD-II (ISO 15031), DoIP (ISO 13400)"
+license = "MIT"
+repository = "https://github.com/bad-antics/nullsec-carfuzz"
+homepage = "https://github.com/bad-antics/nullsec-carfuzz"
+documentation = "https://docs.rs/nullsec-carfuzz"
+readme = "README.md"
+keywords = ["fuzzing", "automotive", "can-bus", "uds", "security"]
+categories = ["command-line-utilities", "development-tools::testing", "network-programming"]
+rust-version = "1.70"
+
+[[bin]]
+name = "carfuzz"
+path = "src/main.rs"
+
+[lib]
+name = "nullsec_carfuzz"
+path = "src/lib.rs"
+
+[dependencies]
+clap = { version = "4", features = ["derive"] }
+rand = { version = "0.8", features = ["small_rng"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+chrono = { version = "0.4", features = ["serde"] }
+hex = "0.4"
+
+[dev-dependencies]
